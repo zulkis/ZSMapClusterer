@@ -6,6 +6,7 @@ Windows Phone 8 Map Clusterer
 How to use:
 On Map Loaded:
 
+````C#
 Loaded += (s, e) =>
 {
 	if (_mapWorker == null)
@@ -20,9 +21,11 @@ Loaded += (s, e) =>
 {
 	_mapWorker = null;
 }
+````
 
 When you need to set some annotations just prepare them like this:
 
+````C#
 List<IAnnotation> annotations = 
 	App.ViewModel.FilteredChargerStations.Select(cs =>
 	{
@@ -36,9 +39,12 @@ List<IAnnotation> annotations =
        	};
         return (IAnnotation)object;
     }).ToList();
+````
+
 Then call:
 
+````C#
 _mapWorker.UpdateWithAnnotations(annotations);
+````
 
 //I will make some improvements with pushpins later.
-
